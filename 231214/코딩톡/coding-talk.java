@@ -26,11 +26,13 @@ public class Main {
 		for (int i = p - 1; i < n; i++) {
 			isRead[c[i] - 'A'] = true;
 		}
-		
+
 		StringBuilder ans = new StringBuilder();
-		for (int i = 0; i < n; i++) {
-			if(!isRead[i])
-				ans.append((char)(i+'A')).append(" ");
+		if (u[p - 1] != 0) {
+			for (int i = 0; i < n; i++) {
+				if (!isRead[i])
+					ans.append((char) (i + 'A')).append(" ");
+			}
 		}
 		System.out.println(ans);
 	}
