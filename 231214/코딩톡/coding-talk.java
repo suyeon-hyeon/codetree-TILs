@@ -23,6 +23,10 @@ public class Main {
 		}
 
 		boolean[] isRead = new boolean[n];
+		for(int i=p-2;i>=0;i--) {
+			if(u[i]==u[p-1])
+				isRead[c[i] - 'A'] = true;
+		}
 		for (int i = p - 1; i < n; i++) {
 			isRead[c[i] - 'A'] = true;
 		}
