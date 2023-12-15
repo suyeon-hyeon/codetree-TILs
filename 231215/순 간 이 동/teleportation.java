@@ -11,9 +11,9 @@ public class Main {
 		int B = Integer.parseInt(st.nextToken());
 		int x = Integer.parseInt(st.nextToken());
 		int y = Integer.parseInt(st.nextToken());
-		int dis1 = B-A;
-		int dis2 = (B-y)+(A-x);
-		int dis3 = (A-y)+(B-x);
+		int dis1 = Math.abs(B-A);
+		int dis2 = Math.abs((B-y)+(A-x));
+		int dis3 = Math.abs((A-y)+(B-x));
 		int min = Math.min(dis1, Math.min(dis2, dis3));
 		System.out.println(min);
 	}
