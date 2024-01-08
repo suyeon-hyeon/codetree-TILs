@@ -20,6 +20,10 @@ public class Main {
                 }
             }
         }
-        System.out.println(Math.abs(end_x - start_x + end_y - start_y) - 1);
+        int ans = Math.abs(end_x - start_x + end_y - start_y) - 1;
+        if (start_x == end_x || start_y == end_y)
+            System.out.println(ans + 2);
+        else
+            System.out.println(ans);
     }
 }
