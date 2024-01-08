@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         char in[] = new char[10];
-        int start_x = 0, start_y = 0, end_x = 0, end_y = 0;
+        int start_x = 0, start_y = 0, end_x = 0, end_y = 0, block_x = 0, block_y = 0;
         for (int i = 0; i < 10; i++) {
             in = br.readLine().toCharArray();
             for (int j = 0; j < 10; j++) {
@@ -17,13 +17,15 @@ public class Main {
                 } else if (in[j] == 'B') {
                     end_x = i;
                     end_y = j;
+                } else if (in[j] == 'R') {
+                    block_x = i;
+                    block_y = j;
                 }
             }
         }
         int ans = Math.abs(end_x - start_x + end_y - start_y) - 1;
-        if (start_x == end_x || start_y == end_y)
+        if (start_x == block_x && block_x == end_x || start_y == block_y && block_y == end_y)
             System.out.println(ans + 2);
-        else
-            System.out.println(ans);
+        else System.out.println(ans);
     }
 }
