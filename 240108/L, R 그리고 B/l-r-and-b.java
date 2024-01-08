@@ -24,7 +24,8 @@ public class Main {
             }
         }
         int ans = Math.abs(end_x - start_x + end_y - start_y) - 1;
-        if (start_x == block_x && block_x == end_x || start_y == block_y && block_y == end_y)
+        if (start_x == block_x && block_x == end_x && (start_y < block_y && block_y < end_y || end_y < block_y && block_y < start_y)
+                || start_y == block_y && block_y == end_y && (start_x < block_x && block_x < end_x || end_x < block_x && block_x < start_x))
             System.out.println(ans + 2);
         else System.out.println(ans);
     }
