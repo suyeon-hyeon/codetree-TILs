@@ -12,8 +12,9 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         int pos[] = new int[n];
         int cnt = 0;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++)
             pos[i] = Integer.parseInt(st.nextToken());
+        for (int i = 0; i < n; i++) {
             if (pos[i] == 1) {
                 cnt++;
                 i += 2 * m;
