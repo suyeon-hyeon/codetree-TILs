@@ -22,7 +22,14 @@ public class Main {
         } else if (odd == even) {
             cnt = odd * 2;
         } else {
-            cnt = even * 2 + (odd-even)/3*2;
+            cnt = even * 2;
+            odd -= even;
+            if (odd % 3 == 0)
+                cnt += odd / 3 * 2;
+            else if (odd % 3 == 2)
+                cnt += odd / 3 * 2 + 1;
+            else
+                cnt += odd / 3 * 2 - 1;
         }
         System.out.println(cnt);
     }
