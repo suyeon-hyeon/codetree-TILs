@@ -10,8 +10,10 @@ public class Main {
         int a = Integer.MAX_VALUE, b = -1, abc = 0;
         for(int i=0;i<n;i++) {
             arr[i] = Integer.parseInt(st.nextToken());
-            b = a;
-            a = Math.min(a,arr[i]);
+            if(arr[i]<=a) {
+                b = a;
+                a = arr[i];
+            }
             abc = Math.max(abc,arr[i]);
         }
         int c = abc-a-b;
