@@ -7,12 +7,15 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int n = 7;
         int[] arr = new int[n];
-        int a = Integer.MAX_VALUE, b = -1, abc = 0;
-        for(int i=0;i<n;i++) {
+        arr[0] = Integer.parseInt(st.nextToken());
+        int a = arr[0], b = arr[0], abc = arr[0];
+        for(int i=1;i<n;i++) {
             arr[i] = Integer.parseInt(st.nextToken());
-            if(arr[i]<=a) {
+            if(a>arr[i]) {
                 b = a;
                 a = arr[i];
+            } else {
+                b = Math.min(b,arr[i]);
             }
             abc = Math.max(abc,arr[i]);
         }
