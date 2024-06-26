@@ -8,7 +8,7 @@ public class Main {
         int n = 7;
         int[] arr = new int[n];
         arr[0] = Integer.parseInt(st.nextToken());
-        int a = arr[0], b = arr[0], abc = arr[0];
+        int a = arr[0], b = Integer.MAX_VALUE, abc = arr[0];
         for(int i=1;i<n;i++) {
             arr[i] = Integer.parseInt(st.nextToken());
             if(a>arr[i]) {
