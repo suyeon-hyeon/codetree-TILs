@@ -10,9 +10,11 @@ public class Main {
         int m = Integer.parseInt(st.nextToken());
         // 식빵 알파벳
         String[] alpha = br.readLine().split("");
-        LinkedList<String> list = new LinkedList<>(Arrays.asList(alpha).subList(0, n));
+        LinkedList<Character> list = new LinkedList<>();
+        for(int i=0;i<n;i++)
+            list.add(alpha[i].charAt(0));
         // 레시피
-        ListIterator<String> it = list.listIterator(list.size());
+        ListIterator<Character> it = list.listIterator(list.size());
         for(int i=0;i<m;i++) {
             st = new StringTokenizer(br.readLine());
             char recipe = st.nextToken().charAt(0);
@@ -32,12 +34,13 @@ public class Main {
                     }
                     break;
                 case 'P':
-                    it.add(st.nextToken());
+                    it.add(st.nextToken().charAt(0));
             }
         }
         // 출력
-        while(!list.isEmpty()) {
-            System.out.print(list.pollFirst());
+        it = list.listIterator();
+        while(it.hasNext()) {
+            System.out.print(it.next());
         }
     }
 }
