@@ -36,7 +36,8 @@ public class Main {
             }
         }
         // 출력
-        for(int i=0;i<n;i++)
+        while(!list.isEmpty()) {
             System.out.print(list.pollFirst());
+        }
     }
 }
