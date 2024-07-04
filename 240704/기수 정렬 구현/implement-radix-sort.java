@@ -23,10 +23,13 @@ public class Main {
         for(int pos=max_digit;pos>=0;pos--) {
             int[][] arr_new = new int[10][n+1];
             for(int i=0;i<n;i++) {
-                int digit = arr[i]%10;
+                int digit = arr[i];
+                for(int j=0;j<max_digit-pos;j++){
+                    digit/=10;
+                }
+                digit%=10;
                 arr_new[digit][0]++;
                 arr_new[digit][arr_new[digit][0]] = arr[i];
-                arr[i]/=10;
             }
 
             int[] store_arr = new int[n];
