@@ -21,7 +21,7 @@ public class Main {
         }
         // 기수 정렬
         for(int pos=max_digit;pos>=0;pos--) {
-            int[][] arr_new = new int[10][11];
+            int[][] arr_new = new int[10][n+1];
             for(int i=0;i<n;i++) {
                 int digit = arr[i]%10;
                 arr_new[digit][0]++;
