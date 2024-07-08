@@ -9,6 +9,7 @@ public class Main {
         // n개의 원소
         n = Integer.parseInt(br.readLine());
         sorted = new int[n];
+        merged_arr = new int[n];
         StringTokenizer st = new StringTokenizer(br.readLine());
         for(int i=0;i<n;i++)
             sorted[i] = Integer.parseInt(st.nextToken());
@@ -26,9 +27,9 @@ public class Main {
         }
     }
 
-    static int[] merge(int[] arr, int low, int mid, int high) {
-        int[] merged_arr = new int[n];
+    static int[] merged_arr;
 
+    static void merge(int[] arr, int low, int mid, int high) {
         int i = low, j = mid+1;
 
         int k = low;
@@ -55,6 +56,5 @@ public class Main {
         for(k=low;k<=high;k++){
             arr[k] = merged_arr[k];
         }
-        return arr;
     }
 }
