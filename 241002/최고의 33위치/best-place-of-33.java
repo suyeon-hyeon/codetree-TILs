@@ -1,60 +1,50 @@
-import java.io.*;
-import java.util.*;
+import java.util.Scanner;
 
 public class Main {
-    // 변수 선언
+    public static final int MAX_N = 20;
+
     public static int n;
-    public static int[][] grid;
+    public static int[][] grid = new int[MAX_N][MAX_N];
 
-    public static void main(String[] args) throws IOException {
+    // (rowS, colS) ~ (rowE, colE) 사이의 금의 개수를 계산합니다.
+    public static int getNumOfGold(int rowS, int colS, int rowE, int colE) {
+        int numOfGold = 0;
+
+        for(int row = rowS; row <= rowE; row++) {
+            for(int col = colS; col <= colE; col++) {
+                numOfGold += grid[row][col];
+            }
+        }
+        
+        return numOfGold;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int maxGold = 0;
+
         // 입력
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        n = Integer.parseInt(br.readLine());
-        grid = new int[n][n];
-        for(int i=0;i<n;i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            for(int j=0;j<n;j++){
-                grid[i][j] = Integer.parseInt(st.nextToken());
+        n = sc.nextInt();
+        for(int row = 0; row < n; row++)
+            for(int col = 0; col < n; col++)
+                grid[row][col] = sc.nextInt();
+        
+        // (row, col)이 3 * 3 격자의 좌측 모서리인 경우를 전부 탐색합니다. 
+        for(int row = 0; row < n; row++) {
+            for(int col = 0; col < n; col++) {
+                // 3 * 3 격자가 n * n 격자를 벗어나는 경우는 계산하지 않습니다.
+                if(row + 2 >= n || col + 2 >= n)
+                    continue;
+                
+                // 금의 개수를 계산합니다.
+                int numOfGold = getNumOfGold(row, col, row + 2, col + 2);
+
+                // 최대 금의 개수를 저장합니다.
+                maxGold = Math.max(maxGold, numOfGold);
             }
         }
 
-        // 로직
-
-        // 변수
-        int check_num = 3;
-        int coin_sum_first_col = 0;
-        int coin_sum_first_row;
-        int max_coin_sum = -1;
-
-        // 첫 index 격자 체크
-        for(int i=0;i<check_num;i++)
-            for(int j=0;j<check_num;j++)
-                coin_sum_first_col+=grid[i][j];
-        max_coin_sum=coin_sum_first_col;
-
-        // 이후 index 격자 체크
-        for(int i=0;i<=n-check_num;i++){
-
-            // col 한칸씩 이동
-            if(i>0) {
-                for(int j=0;j<check_num;j++) {
-                    coin_sum_first_col-=grid[i-1][j];
-                    coin_sum_first_col+=grid[i+check_num-1][j];
-                }
-                max_coin_sum=Math.max(max_coin_sum,coin_sum_first_col);
-            }
-            coin_sum_first_row = coin_sum_first_col;
-
-            // row 한칸씩 이동
-            for(int j=1;j<=n-check_num;j++){
-                for(int k=0;k<check_num;k++){
-                    coin_sum_first_row-=grid[i+k][j-1];
-                    coin_sum_first_row+=grid[i+k][j+check_num-1];
-                }
-                max_coin_sum=Math.max(max_coin_sum,coin_sum_first_row);
-            }
-        }
-
-        System.out.println(max_coin_sum);
+        System.out.println(maxGold);
     }
 }
