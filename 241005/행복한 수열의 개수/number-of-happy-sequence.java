@@ -21,41 +21,45 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             // 연속인 수 개수
             int cnt = 1;
+            boolean isHappy = false;
             for(int j=0;j<n;j++){
                 // 입력
                 grid[i][j] = Integer.parseInt(st.nextToken());
+                
+                if(cnt>=m)
+                    isHappy = true;
 
                 // 연속인 경우 count
                 if(j>0 && grid[i][j]==grid[i][j-1])
                     cnt++;
                 else
                     cnt = 1;
-
-                // count한 수가 m보다 클 경우 ans 증가
-                if(cnt>=m) {
-                    ans++;
-                    break;
-                }
             }
+
+            // count한 수가 m보다 클 경우 ans 증가
+            if(isHappy)
+              ans++;
         }
 
         // 열 로직
         for(int i=0;i<n;i++) {
             // 연속인 수 개수
             int cnt = 1;
-            for(int j=1;j<n;j++) {
+            boolean isHappy = false;
+            for(int j=0;j<n;j++) {
+                if(cnt>=m)
+                    isHappy = true;
+                
                 // 연속인 경우 count
-                if(grid[j][i]==grid[j-1][i])
+                if(j>0 && grid[j][i]==grid[j-1][i])
                     cnt++;
                 else
                     cnt = 1;
-
-                // count한 수가 m보다 클 경우 ans 증가
-                if(cnt>=m) {
-                    ans++;
-                    break;
-                }
             }
+
+            // count한 수가 m보다 클 경우 ans 증가
+            if(isHappy)
+                ans++;
         }
 
         System.out.println(ans);
