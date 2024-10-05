@@ -30,11 +30,13 @@ public class Main {
                     cnt++;
                 else
                     cnt = 1;
-            }
 
-            // count한 수가 m보다 클 경우 ans 증가
-            if(cnt>=m)
-              ans++;
+                // count한 수가 m보다 클 경우 ans 증가
+                if(cnt>=m) {
+                    ans++;
+                    break;
+                }
+            }
         }
 
         // 열 로직
@@ -47,11 +49,13 @@ public class Main {
                     cnt++;
                 else
                     cnt = 1;
-            }
 
-            // count한 수가 m보다 클 경우 ans 증가
-            if(cnt>=m)
-                ans++;
+                // count한 수가 m보다 클 경우 ans 증가
+                if(cnt>=m) {
+                    ans++;
+                    break;
+                }
+            }
         }
 
         System.out.println(ans);
