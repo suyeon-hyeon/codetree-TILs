@@ -15,13 +15,13 @@ public class Main {
         for(int i=0;i<4;i++) {
             int nx1 = x+dx[i];
             int ny1 = y+dy[i];
-            if(nx1<0||nx1>=n||ny1<0||ny1>=n)
+            if(nx1<0||nx1>=n||ny1<0||ny1>=m)
                 continue;
             int sum = grid[x][y]+grid[nx1][ny1];
             for(int j=i+1;j<4;j++) {
                 int nx2 = x+dx[j];
                 int ny2 = y+dy[j];
-                if(nx2<0||nx2>=n||ny2<0||ny2>=n)
+                if(nx2<0||nx2>=n||ny2<0||ny2>=m)
                     continue;
                 sum+=grid[nx2][ny2];
                 max = Math.max(max,sum);
@@ -37,11 +37,11 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
-        grid = new int[n][n];
+        grid = new int[n][m];
         int ans = 0;
         for(int i=0;i<n;i++) {
             st = new StringTokenizer(br.readLine());
-            for(int j=0;j<n;j++){
+            for(int j=0;j<m;j++){
                 grid[i][j] = Integer.parseInt(st.nextToken());
             }
         }
@@ -49,7 +49,7 @@ public class Main {
         // 로직
 
         for(int i=0;i<n;i++) {
-            for(int j=0;j<n;j++) {
+            for(int j=0;j<m;j++) {
                 ans = Math.max(ans,totalMax(i,j));
             }
         }
