@@ -25,15 +25,15 @@ public class Main {
             for(int j=0;j<n;j++){
                 // 입력
                 grid[i][j] = Integer.parseInt(st.nextToken());
-                
-                if(cnt>=m)
-                    isHappy = true;
 
                 // 연속인 경우 count
                 if(j>0 && grid[i][j]==grid[i][j-1])
                     cnt++;
                 else
                     cnt = 1;
+
+                if(cnt>=m)
+                    isHappy = true;
             }
 
             // count한 수가 m보다 클 경우 ans 증가
@@ -47,14 +47,14 @@ public class Main {
             int cnt = 1;
             boolean isHappy = false;
             for(int j=0;j<n;j++) {
-                if(cnt>=m)
-                    isHappy = true;
-                
                 // 연속인 경우 count
                 if(j>0 && grid[j][i]==grid[j-1][i])
                     cnt++;
                 else
                     cnt = 1;
+
+                if(cnt>=m)
+                    isHappy = true;
             }
 
             // count한 수가 m보다 클 경우 ans 증가
