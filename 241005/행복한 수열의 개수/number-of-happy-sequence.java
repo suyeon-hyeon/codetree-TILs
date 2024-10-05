@@ -40,7 +40,7 @@ public class Main {
         // 열 로직
         for(int i=0;i<n;i++) {
             // 연속인 수 개수
-            int cnt = 0;
+            int cnt = 1;
             for(int j=1;j<n;j++) {
                 // 연속인 경우 count
                 if(grid[j][i]==grid[j-1][i])
