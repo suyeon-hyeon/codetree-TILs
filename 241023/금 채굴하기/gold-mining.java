@@ -15,7 +15,7 @@ public class Main {
 
         int max = grid[x][y];  // 손해 없이 얻을 수 있는 가장 많은 골드 수
         int cnt = max;  // 마름모 범위 안에 존재하는 골드 수
-        for(int size=1; size<n; size++) {
+        for(int size=1; size<=n; size++) {
             int cost = size*size + (size+1)*(size+1);  // 채굴 비용
             // 늘어난 사이즈만큼 골드 수 카운트
             for(int d=0; d<4; d++){ // 동서남북 방향
@@ -24,7 +24,7 @@ public class Main {
                 int ny = y + size*dy[d];
                 if(nx>=0&&nx<n&&ny>=0&&ny<n)
                     cnt+=grid[nx][ny];
-                
+
                 // 꼭지점 사이의 골드 카운트
                 int d1 = (d+1)%4;
                 int d2 = (d+2)%4;
