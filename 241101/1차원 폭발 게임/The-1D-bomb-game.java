@@ -35,9 +35,6 @@ public class Main {
             isBomb=true;
         }
 
-        if(!isBomb)
-            return;
-
         // 가라앉기
         int[] temp = new int[length];
         int idx = 0;
@@ -48,6 +45,9 @@ public class Main {
         }
         arr=temp;
         n=length;
+
+        if(!isBomb||length==0)
+            return;
 
         arrBomb();
     }
