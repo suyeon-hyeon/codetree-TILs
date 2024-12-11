@@ -98,18 +98,24 @@ int main() {
         for(int j=0;j<n;j++)
             cin>>grid[i][j];
 
-    // 폭발
-    bomb();
-    for(int i=0;i<k;i++) {
-        rotate();
-        bomb();
+    // 연속일 경우 무조건 0개
+    if(m==1) {
+        cout<<0;
     }
+    else{
+        // 폭발
+        bomb();
+        for(int i=0;i<k;i++) {
+            rotate();
+            bomb();
+        }
 
-    // 남은 폭탄 수 카운팅
-    int bomb_cnt=0;
-    for(int i=0;i<n;i++)
-        for(int j=0;j<n;j++)
-            if(grid[i][j]!=0)
-                bomb_cnt++;
-    cout<<bomb_cnt;
+        // 남은 폭탄 수 카운팅
+        int bomb_cnt=0;
+        for(int i=0;i<n;i++)
+            for(int j=0;j<n;j++)
+                if(grid[i][j]!=0)
+                    bomb_cnt++;
+        cout<<bomb_cnt;
+    }
 }
