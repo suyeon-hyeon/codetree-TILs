@@ -66,7 +66,7 @@ int bomb(int x, int y) {
             int ny = y+dy[j]*i;
             if(nx<0||nx>=n||ny<0||ny>=n)
                 continue;
-            bomb_grid[i][j]=0;
+            bomb_grid[nx][ny]=0;
         }
     }
 
