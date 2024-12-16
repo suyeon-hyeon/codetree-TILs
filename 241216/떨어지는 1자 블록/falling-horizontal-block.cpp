@@ -13,8 +13,8 @@ int main() {
     for(int i=1;i<=n;i++)
         for(int j=1;j<=n;j++)
             cin>>grid[i][j];
-    
-    for(int i=n;i>=1;i--) {
+    int max_row=1;
+    for(int i=1;i<=n;i++) {
         bool isEmpty = true;
         for(int j=k;j<k+m;j++) {
             if(grid[i][j]==1) {
@@ -22,12 +22,14 @@ int main() {
                 break;
             }
         }
-        if(isEmpty) {
-            for(int j=k;j<k+m;j++)
-                grid[i][j]=1;
-            break;   
-        }
+        if(!isEmpty)
+            break;
+        max_row=i;
     }
+
+    for(int j=k;j<k+m;j++)
+        grid[max_row][j]=1;
+
 
     for(int i=1;i<=n;i++) {
         for(int j=1;j<=n;j++)
