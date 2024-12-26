@@ -59,7 +59,7 @@ void roll(char cmd) {
         grid[r][c]=7-pre_x;
         x=7-pre_z;
         y=pre_y;
-        z=7-pre_y;
+        z=pre_x;
     }
 }
 
