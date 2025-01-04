@@ -30,19 +30,19 @@ void bead(int start_dir, int start_x, int start_y){
             if(dir%2==0) {
                 dir+=1;
             } else if(dir%2==1) {
-                dir-=0;
+                dir-=1;
             }
         }
         nx+=dx[dir];
-        ny+=dy[dir];   
+        ny+=dy[dir];
     }
     max_t=max(max_t,t);
 }
 
 int main() {
     cin >> n;
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++) cin >> grid[i][j];
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= n; j++) cin >> grid[i][j];
     
     max_t=0;
     for(int dir=0;dir<4;dir++) {
