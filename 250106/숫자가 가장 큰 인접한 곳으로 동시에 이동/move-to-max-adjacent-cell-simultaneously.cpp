@@ -16,6 +16,10 @@ int bead_num;
 int dx[4] = {1,-1,0,0};
 int dy[4] = {0,0,-1,1};
 
+bool InRange(int x, int y){
+    return x>=1&&x<=n&&y>=1&&y<=n;
+}
+
 void move(){
     for(int time=0;time<t;time++) {
         for (int i = 1; i <= n; i++) {
@@ -27,8 +31,16 @@ void move(){
             for (int j = 1; j <= n; j++) {
                 if(cnt[i][j]==0)
                     continue;
-                int max_dir=0;
-                for(int dir=1;dir<4;dir++) {
+                int max_dir=-1;
+                for(int dir=0;dir<4;dir++) {
+                    int nx=i+dx[dir];
+                    int ny=j+dy[dir];
+                    if(!InRange(nx,ny))
+                        continue;
+                    if(max_dir==-1) {
+                        max_dir=dir;
+                        continue;
+                    }
                     if(bead[i+dx[dir]][j+dy[dir]]>bead[i+dx[max_dir]][j+dy[max_dir]])
                         max_dir=dir;
                 }
