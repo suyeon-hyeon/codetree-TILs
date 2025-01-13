@@ -15,7 +15,7 @@ int d[MAX_N*MAX_N];
 int dx[4] = {0,1,0,-1};
 int dy[4] = {1,0,-1,0};
 
-bool InRange(int x, int y){return x>=0&&x<=N&&y>=0&&y<=N;}
+bool InRange(int x, int y){return x>=1&&x<=N&&y>=1&&y<=N;}
 
 int CharToInt(char d) {
     int dir=-1;
@@ -44,15 +44,36 @@ void move() {
         }
     }
     for(int m=0;m<M;m++) {
-        int nx=x[m]+d[m];
-        int ny=y[m]+d[m];
+        if(d[m]==-1)
+            continue;
+        int nx=x[m]+dx[d[m]];
+        int ny=y[m]+dy[d[m]];
 
         if(!InRange(nx,ny)) {
-            d[m]=(d[m]+2)%4;
-            continue;
+            nx=x[m];
+            ny=y[m];
         }
 
         temp[nx][ny]++;
+    }
+
+    for(int m=0;m<M;m++) {
+        int nx=x[m]+dx[d[m]];
+        int ny=y[m]+dy[d[m]];
+
+        if(!InRange(nx,ny)) {
+            d[m]=(d[m]+2)%4;
+            nx=x[m];
+            ny=y[m];
+        }
+        
+        if(temp[nx][ny]>1) {
+            d[m]=-1;
+        }
+        else {
+            x[m]=nx;
+            y[m]=ny;
+        }
     }
 
     for(int i=1;i<=N;i++) {
@@ -70,7 +91,6 @@ int main() {
 
     for (int t = 0; t < T; t++) {
         cin >> N >> M;
-
         for(int i=1;i<=N;i++) {
             for(int j=1;j<=N;j++) {
                 grid[i][j]=0;
@@ -83,8 +103,8 @@ int main() {
             grid[x[i]][y[i]]=1;
             d[i]=CharToInt(dir);
         }
-
-        for (int i=0;i<M*M;i++) {
+        
+        for (int i=0;i<N*N;i++) {
             move();
         }
 
