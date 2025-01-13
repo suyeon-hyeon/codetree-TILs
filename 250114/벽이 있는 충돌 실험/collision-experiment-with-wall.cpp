@@ -104,7 +104,7 @@ int main() {
             d[i]=CharToInt(dir);
         }
         
-        for (int i=0;i<N*N;i++) {
+        for (int i=0;i<N*2;i++) {
             move();
         }
 
