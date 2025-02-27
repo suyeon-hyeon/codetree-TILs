@@ -90,8 +90,6 @@ int main() {
     }
 
     for (int i = 0; i < m; i++) {
-        if(is_done)
-            break;
         int move_num;
         cin >> move_num;
         move(move_num);
