@@ -19,7 +19,7 @@ char direction_map[128];
 void move() {
     vector<Marble> next_grid[MAX_N+1][MAX_N+1];
 
-    if(int i=1;i<=n;i++) {
+    for(int i=1;i<=n;i++) {
         for(int j=1;j<=n;j++) {
             for(Marble m:grid[i][j]) {
                 int nx= i+dx[m.dir]*m.speed;
@@ -43,7 +43,7 @@ void move() {
         for(int j=1;j<=n;j++){
             if(next_grid[i][j].size()>k){
                 sort(next_grid[i][j].begin(),next_grid[i][j].end(),
-                [](const Marble &a, const Marble &b)->{
+                [](const Marble &a, const Marble &b){
                     return (a.speed==b.speed)?(a.id>b.id):(a.speed>b.speed);
                 });
                 next_grid[i][j].resize(k);
