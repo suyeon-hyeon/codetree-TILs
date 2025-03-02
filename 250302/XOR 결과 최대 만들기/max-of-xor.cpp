@@ -25,7 +25,7 @@ void Choose(int start, int cnt, int result) {
 
 int main() {
     cin >> n >> m;
-    for(int i=0;i<n;i++){
+    for(int i=1;i<=n;i++){
         cin>>input[i];
     }
     max_result=-1;
