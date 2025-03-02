@@ -4,8 +4,11 @@
 
 using namespace std;
 
+#define MAX_N 20
+
 int n, m;
 vector<int> answer;
+int input[MAX_N+1];
 int max_result;
 
 void Choose(int start, int cnt, int result) {
@@ -14,17 +17,18 @@ void Choose(int start, int cnt, int result) {
         return;
     }
 
-    for(int select=start;select<=n;select++){
-        answer.push_back(select);
-        Choose(select+1, cnt+1, result^select);
-        answer.pop_back();
+    for(int i=start;i<=n;i++){
+        Choose(i+1, cnt+1, result^input[i]);
     }
 
 }
 
 int main() {
     cin >> n >> m;
-    max_result=0;
+    for(int i=0;i<n;i++){
+        cin>>input[i];
+    }
+    max_result=-1;
     Choose(1,0,0);
     cout<<max_result;
     return 0;
