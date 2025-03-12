@@ -14,21 +14,17 @@ int n;
 vector<Line> lines;
 int ans;
 
-void Choose(int cur_num, int last_index, int sum){
-    if(cur_num==n) {
-        ans=max(ans,sum);
+void Choose(int index, int last_end, int count){
+    if(index==n) {
+        ans=max(ans,count);
         return;
     }
 
-    int idx=last_index;
-    for(int i=0;i<n;i++){
-        if(idx<lines[i].start) {
-            idx=lines[i].end;
-            Choose(cur_num+1,idx,sum+1);
-        }
-        else
-            Choose(cur_num+1,idx,sum);
+    if (lines[index].start > last_end) {
+        Choose(index + 1, lines[index].end, count + 1);
     }
+    
+    Choose(index + 1, last_end, count);
 }
 
 bool compare(const Line &a, const Line &b){
@@ -46,7 +42,7 @@ int main() {
     }
 
     sort(lines.begin(),lines.end(),compare);
-    Choose(0,0,0);
+    Choose(0,-1,0);
 
     cout<<ans;
 }
