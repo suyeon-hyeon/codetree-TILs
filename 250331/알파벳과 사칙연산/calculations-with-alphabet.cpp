@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <climits>
 
 using namespace std;
 
@@ -39,7 +40,7 @@ void FindMax(int cnt) {
 int main() {
     cin >> expression;
 
-    max_val=0;
+    max_val=INT_MIN;
     for(int i=0;i<6;i++)
         alpha[i]=0;
 
