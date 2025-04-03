@@ -18,16 +18,16 @@ int main() {
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            dp[i][j]=INT_MIN;
+            dp[i][j]=-1;
         }
     }
     dp[0][0]=1;
 
     for(int i=1;i<n;i++){
-        for(int j=1;j<n;j++){
+        for(int j=1;j<m;j++){
             for(int k=0;k<i;k++){
                 for(int l=0;l<j;l++){
-                    if(dp[k][l]==INT_MIN)
+                    if(dp[k][l]==-1)
                         continue;
                     
                     if(grid[k][l]<grid[i][j])
