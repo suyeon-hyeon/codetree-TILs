@@ -18,12 +18,12 @@ int main() {
     for(int i=1;i<=n;i++){
         for(int j=0;j<3;j++){
             if(i>=num[j]){
-                dp[i]+=dp[i-num[j]];
+                dp[i] = (dp[i] + dp[i - num[j]]) % 10007;
             }
         }
     }
 
-    cout<<dp[n]%10007;
+    cout<<dp[n];
 
     return 0;
 }
