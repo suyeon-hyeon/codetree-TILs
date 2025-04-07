@@ -18,9 +18,10 @@ void FindMin(int cnt, int cur) {
     if(cnt==3) {
         int dis=0;
         dis+=abs(x[0]-x[seq[0]])+abs(y[0]-y[seq[0]]);
-        dis+=abs(x[seq[0]]-x[seq[1]])+abs(x[seq[0]]-y[seq[1]]);
-        dis+=abs(x[seq[1]]-x[seq[2]])+abs(x[seq[1]]-y[seq[2]]);
-        dis+=abs(x[seq[2]]-x[10])+abs(x[seq[2]]-y[10]);
+        dis+=abs(x[seq[0]]-x[seq[1]])+abs(y[seq[0]]-y[seq[1]]);
+        dis+=abs(x[seq[1]]-x[seq[2]])+abs(y[seq[1]]-y[seq[2]]);
+        dis+=abs(x[seq[2]]-x[10])+abs(y[seq[2]]-y[10]);
+        
         ans=min(dis,ans);
         return;
     }
