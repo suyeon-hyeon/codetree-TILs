@@ -11,15 +11,18 @@ int sum;
 int total_sum;
 int min_diff;
 
-void FindMinDiff(int cnt){
+void FindMinDiff(int cnt,int idx){
     if(cnt==n){
         int another_sum = total_sum-sum;
         min_diff=min(min_diff,abs(another_sum-sum));
+        return;
     }
 
-    for(int i=cnt;i<2*n;i++){
+    for(int i=idx;i<2*n;i++){
+        if(cnt==0&&i==n)
+            break;
         sum+=num[i];
-        FindMinDiff(cnt+1);
+        FindMinDiff(cnt+1,i+1);
         sum-=num[i];
     }
 }
@@ -35,7 +38,7 @@ int main() {
 
     sum=0;
     min_diff=INT_MAX;
-    FindMinDiff(0);
+    FindMinDiff(0,0);
 
     cout<<min_diff;
     return 0;
