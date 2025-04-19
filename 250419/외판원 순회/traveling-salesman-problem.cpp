@@ -11,6 +11,8 @@ int ans;
 
 void FindMin(int cnt,int pre,int sum) {
     if(cnt==n){
+        if(a[pre][1]==0)
+            return;
         ans=min(ans,sum+a[pre][1]);
         return;
     }
