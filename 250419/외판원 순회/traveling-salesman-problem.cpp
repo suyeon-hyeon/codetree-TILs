@@ -16,7 +16,7 @@ void FindMin(int cnt,int pre,int sum) {
     }
 
     for(int i=2;i<=n;i++){
-        if(visited[i])
+        if(visited[i]||a[pre][i]==0)
             continue;
         
         visited[i]=true;
