@@ -9,9 +9,10 @@ int n, m;
 int ans;
 
 int graph[MAX_NUM + 1][MAX_NUM + 1];
+bool visited[MAX_NUM + 1][MAX_NUM + 1];
 
 bool CanGo(int x, int y) {
-    return x>=0&&x<n&&y>=0&&y<m&&graph[x][y]==1;
+    return x>=0&&x<n&&y>=0&&y<m&&graph[x][y]==1&&!visited[x][y];
 }
 
 void DFS(int x, int y) {
@@ -21,6 +22,8 @@ void DFS(int x, int y) {
     }
     int dx[2] = {0,1};
     int dy[2] = {1,0};
+
+    visited[x][y] = true;
 
     for(int i = 0; i < 2; i++){
         int nx = x + dx[i];
