@@ -11,11 +11,11 @@ int ans;
 int graph[MAX_NUM + 1][MAX_NUM + 1];
 
 bool CanGo(int x, int y) {
-    return x>=0&&x<n&&y>=0&&y<n&&graph[x][y]==1;
+    return x>=0&&x<n&&y>=0&&y<m&&graph[x][y]==1;
 }
 
 void DFS(int x, int y) {
-    if(x==n-1&&y==n-1){
+    if(x==n-1&&y==m-1){
         ans=1;
         return;
     }
