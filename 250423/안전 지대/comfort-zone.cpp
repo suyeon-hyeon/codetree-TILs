@@ -60,7 +60,7 @@ int main() {
         }
     }
 
-    int ans=-1;
+    int ans=1;
     int ans_num=0;
 
     for(int k=1;k<k_max;k++){
