@@ -2,7 +2,7 @@
 using namespace std;
 
 int n;
-int dp[1005][15];
+int dp[1001][10];
 
 #define MOD 1000000007
 
