@@ -1,11 +1,4 @@
 #include <iostream>
-
-using namespace std;
-
-int n;
-int l[1001], m[1001], r[1001];
-
-int main() {#include <iostream>
 using namespace std;
 
 int n;
@@ -56,16 +49,5 @@ int main() {
 
     // 계산된 최대 점수를 출력합니다.
     cout << ans;
-    return 0;
-}
-
-    cin >> n;
-
-    for (int i = 0; i < n; i++) {
-        cin >> l[i] >> m[i] >> r[i];
-    }
-
-    // Please write your code here.
-
     return 0;
 }
